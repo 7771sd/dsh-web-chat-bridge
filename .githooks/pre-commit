@@ -1,0 +1,24 @@
+#!/bin/sh
+# 提交前防泄漏检查：只扫「本次暂存的内容」，发现疑似泄漏就拒绝提交。
+#
+# 装法（仓库内执行一次）：
+#   git config core.hooksPath .githooks
+#
+# 临时绕过（确实需要时）：
+#   git commit --no-verify
+#
+# 说明：本文件入库，所以它自己不能含敏感词——真正的敏感词清单在
+# 被忽略的 .leak-terms.local 里。
+
+node "$(git rev-parse --show-toplevel)/tools/leak-check.mjs" --staged
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "提交被拦下：暂存内容疑似包含不该公开的信息。"
+  echo "  1) 按上面的提示改成占位符，或把文件加进 .gitignore"
+  echo "  2) 把要屏蔽的字样追加到 .leak-terms.local"
+  echo "  3) 确认没问题要强行提交：git commit --no-verify"
+  echo ""
+fi
+exit $status

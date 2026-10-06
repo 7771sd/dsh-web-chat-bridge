@@ -12,6 +12,18 @@ lv-*.png
 acc-*.png
 *-out.txt
 
+# 防泄漏：本地敏感词清单，只在本机存在
+.leak-terms.local
+.leak-report*.txt
+
+# 本地状态与凭据（这些一旦入库就是事故）
+pairing.txt
+tasks.json
+answers/
+.credentials*
+*.pem
+*.key
+
 # 依赖与编辑器
 node_modules/
 .vscode/
