@@ -27,7 +27,7 @@
 #
 #   先加载 cordis-plugin-development 技能，再调用 plugin_manager：
 #     action: install_bundle
-#     target: E:\加密货币非线性因子挖掘\截面v5\web_chat_bridge
+#     target: <本机插件目录>
 #
 #   安装结果应为 application=applied。若提示 restart-required，说明改动
 #   还没生效，需再重启一次。装完后调用 web_chat_status 验证工具已注册。
