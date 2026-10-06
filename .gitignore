@@ -1,0 +1,20 @@
+# 中间产物与本地状态，不入库
+_backup_*/
+*.tmp
+*.log
+shot-*.png
+effort-*.png
+think-*.png
+max-*.png
+probe-*.png
+home-*.png
+lv-*.png
+acc-*.png
+*-out.txt
+
+# 依赖与编辑器
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>网页 AI 任务桥设置</title><link rel="stylesheet" href="ui.css"></head>
+<body class="options">
+  <h1>本机配对</h1>
+  <p>本机桥地址默认为 <code>http://127.0.0.1:32145</code>，与 Harness 插件默认端口一致。配对码只由扩展后台保管，不传入聊天网页；不读取网站 Cookie。</p>
+  <form id="pair-form">
+    <label for="port">本机桥端口</label>
+    <input id="port" type="number" min="1024" max="65535" step="1" inputmode="numeric" placeholder="32145">
+    <p class="muted">改了 Harness 插件的端口才需要改这里。填错也不怕：点“检查本机桥在线”会自动找到实际端口并记住。</p>
+    <label for="token">本机桥配对码</label>
+    <input id="token" type="password" autocomplete="new-password" spellcheck="false" placeholder="已配置时留空表示保留原配对码">
+    <p id="paired" class="muted"></p>
+    <div class="row"><button type="submit">保存配对码</button><button id="health" type="button" class="secondary">检查本机桥在线</button></div>
+  </form>
+  <p id="feedback" role="status" aria-live="polite"></p>
+  <details>
+    <summary>高级：页面选择器（仅在控件定位失败时修改）</summary>
+    <p class="notice">三站默认选择器尚未真实页面联测。这里填写 CSS 选择器，不支持脚本。必须先在独立对话验证；发送按钮和输入框必须唯一，完成标记必须属于本次新增助手消息。</p>
+    <form id="adapter-form">
+      <label for="provider">网站</label>
+      <select id="provider"><option value="chatgpt">ChatGPT</option><option value="deepseek">DeepSeek</option><option value="gemini">Gemini</option></select>
+      <label for="composer">聊天输入框 composer</label><textarea id="composer" rows="2" spellcheck="false"></textarea>
+      <label for="assistant">助手消息 assistant（不能包含用户消息）</label><textarea id="assistant" rows="2" spellcheck="false"></textarea>
+      <label for="send">发送按钮 send</label><textarea id="send" rows="2" spellcheck="false"></textarea>
+      <label for="stop">正在生成时的停止按钮 stop</label><textarea id="stop" rows="2" spellcheck="false"></textarea>
+      <label for="done">该新消息内部的完成控件 done（如回答复制按钮）</label><textarea id="done" rows="2" spellcheck="false"></textarea>
+      <p class="muted">留空使用下方占位提示中的默认值。更新后请断开再连接，使新任务使用新设置。稳定文字本身不算完成。</p>
+      <div class="row"><button type="submit">保存该站选择器</button><button id="reset" type="button" class="secondary">恢复该站默认值</button></div>
+    </form>
+  </details>
+  <p class="muted">保存设置和在线检查不发送网页消息。只有你在聊天标签页点击“连接当前聊天”后，才接收该别名的任务。</p>
+  <script src="adapters.js"></script><script src="options.js"></script>
+</body>
+</html>

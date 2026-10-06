@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>网页 AI 任务桥</title><link rel="stylesheet" href="ui.css"></head>
+<body class="popup">
+  <h1>网页 AI 任务桥</h1>
+  <p class="notice">仅操作你主动连接的标签页。三站适配未实页联测；请先用独立聊天页做小任务验证。</p>
+  <p id="current-url" class="muted"></p>
+  <label for="agent">助手别名</label>
+  <input id="agent" maxlength="80" placeholder="chatgpt / deepseek / gemini" autocomplete="off" spellcheck="false">
+  <div class="row"><button id="connect">连接当前聊天</button><button id="options" class="secondary">设置</button></div>
+  <p id="feedback" role="status" aria-live="polite"></p>
+  <p id="endpoint" class="muted"></p>
+  <div id="bindings"></div>
+  <p class="muted">保留标签页与原对话。断开不会替你停止网页生成。已发送任务刷新后不重发；解除挂起前先在网页检查结果。</p>
+  <script src="shared.js"></script><script src="popup.js"></script>
+</body>
+</html>

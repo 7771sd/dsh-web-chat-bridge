@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "本机网页 AI 任务桥",
+  "version": "0.1.0",
+  "description": "仅在用户主动连接的聊天标签页派发任务、收取回答。三站选择器尚待真实页面联测。",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://chatgpt.com/*",
+    "https://chat.deepseek.com/*",
+    "https://gemini.google.com/*"
+  ],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup.html"},
+  "options_page": "options.html",
+  "content_scripts": [{
+    "matches": ["https://chatgpt.com/*", "https://chat.deepseek.com/*", "https://gemini.google.com/*"],
+    "js": ["shared.js", "adapters.js", "content.js"],
+    "run_at": "document_idle",
+    "all_frames": false
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src http://127.0.0.1:*"
+  }
+}

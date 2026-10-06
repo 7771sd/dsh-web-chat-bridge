@@ -1,0 +1,5 @@
+- insert:
+    - id: local-web-chat-bridge
+      name: '@local/dsh-web-chat-bridge'
+      config:
+        port: 32145

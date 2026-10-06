@@ -1,0 +1,17 @@
+{
+  "name": "@local/dsh-web-chat-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "让 DeepSeek Harness 向已绑定的网页 AI 派任务、取回回答和继续追问。",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

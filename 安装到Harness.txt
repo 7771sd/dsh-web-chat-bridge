@@ -1,0 +1,18 @@
+请安装当前工作区已完成的“网页助手桥接”插件：
+
+E:\加密货币非线性因子挖掘\截面v5\web_chat_bridge
+
+先加载 cordis-plugin-development 技能，再调用原生 plugin_manager：
+action: install_bundle
+target: E:\加密货币非线性因子挖掘\截面v5\web_chat_bridge
+
+直接安装现有插件，不重新编写它，不手改 profile，不自动重启 Harness。报告 application 和 warnings；如果需要重启就明确说明。安装结果为 applied 后，调用 web_chat_status 验证真实工具已注册，并告诉我配对码文件的位置，不要打印配对码内容。
+
+浏览器扩展目录：
+E:\加密货币非线性因子挖掘\截面v5\web_chat_bridge\extension
+
+网页尚未联测。等我加载扩展、配对并连接网页后，使用无敏感信息的短问题测试 ChatGPT 和 DeepSeek 的“发问→完整回读→原对话追问”，不要用研究资料做测试。
+
+Gemini 本机网络无法登录，本轮跳过，不要为它做任何联测或适配改动，也不要因此修改其他两站的设置。
+
+只有真实拿到正确新回答才能报告该网站已接通。某个网站失败时，报告是哪一步失败（找不到输入框/发送按钮、回答未出现、完成标记找不到、状态停在 uncertain），不要自动重试或改用其他选择器重发。

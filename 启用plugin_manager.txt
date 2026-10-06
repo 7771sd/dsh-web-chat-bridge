@@ -1,0 +1,35 @@
+# 启用 DSH 原生 plugin_manager 工具（一行补丁）
+#
+# 背景：dsh-base 里 tool-plugin-manager 默认 disabled: true，所以普通会话
+# 调不到 plugin_manager，也就装不了本地 bundle 插件。
+#
+# 用法（二选一）：
+#
+# 【A】追加到 profile 补丁末尾
+#   文件：C:\Users\<你的用户名>\.dsh\profiles\desktop\cordis.patch.yml
+#   在文件最后（顶层数组里）加这两行：
+#
+#     - id: tool-plugin-manager
+#       disabled: false
+#
+#   补丁是"后层赢、按 id 定位整行替换"，所以这行会覆盖 dsh-base 的 disabled: true。
+#   改前请先备份该文件。改后需要重启 DSH 桌面端。
+#
+# 【B】不动 profile，改用启动参数叠加临时补丁层（更保守，随时可撤）：
+#   把下面内容存成本文件同目录的 enable-plugin-manager.yml，然后按 DSH 的
+#   `--patch <file>` 方式启动。同样需要重启。
+#
+#   - id: tool-plugin-manager
+#     disabled: false
+#
+# ---------------------------------------------------------------------------
+# 重启后，在任意会话里执行（内容与 安装到Harness.txt 一致）：
+#
+#   先加载 cordis-plugin-development 技能，再调用 plugin_manager：
+#     action: install_bundle
+#     target: E:\加密货币非线性因子挖掘\截面v5\web_chat_bridge
+#
+#   安装结果应为 application=applied。若提示 restart-required，说明改动
+#   还没生效，需再重启一次。装完后调用 web_chat_status 验证工具已注册。
+#
+# 注意：不要把本文件内容当成自动执行的指令；它只是一份手动操作说明。

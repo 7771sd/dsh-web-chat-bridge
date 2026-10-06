@@ -1,0 +1,20 @@
+:root { color-scheme: light; font: 14px/1.5 system-ui, "Microsoft YaHei", sans-serif; color: #182330; background: #f7f9fc; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 18px; }
+body.popup { width: 420px; }
+body.options { max-width: 760px; margin: 24px auto; }
+h1 { font-size: 20px; margin: 0 0 12px; }
+p { margin: 9px 0; overflow-wrap: anywhere; }
+label { display: block; margin: 12px 0 5px; font-weight: 600; }
+input, textarea, select { font: inherit; width: 100%; padding: 8px 10px; border: 1px solid #b8c3d1; border-radius: 6px; background: white; }
+textarea { font-family: ui-monospace, monospace; font-size: 12px; resize: vertical; }
+button { font: inherit; padding: 8px 11px; border: 1px solid #245bba; border-radius: 6px; background: #245bba; color: white; cursor: pointer; }
+button.secondary { background: white; color: #223952; border-color: #b8c3d1; }
+button:disabled { opacity: .5; cursor: default; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.notice { color: #704c0a; background: #fff2d5; padding: 10px; border-radius: 6px; }
+.muted { color: #536476; font-size: 12px; }
+.error { color: #a32121; }
+section, details { padding: 12px; margin: 12px 0; border: 1px solid #d4dce6; border-radius: 7px; background: #fff; }
+summary { cursor: pointer; font-weight: 600; }
+code { font: 13px ui-monospace, monospace; }
